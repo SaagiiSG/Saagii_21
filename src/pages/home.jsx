@@ -11,7 +11,6 @@ import Footer from './footer.jsx';
 function Home(){
     return(
         <main className='w-full h-auto sm:min-h-screen  sm:overflow-scroll flex flex-col items-center bg-[#f0f8ff] text-[#101720] ' style={{fontFamily:'sora'}}>
-     <Nav/>
 
           <Hero/>
           <Para  

@@ -1,7 +1,7 @@
 import React from "react";
 
 import Hero from './hero';
-import SocialIcons from './components/socialIcons';
+import SocialIcons from '../components/socialIcons.jsx';
 import Para from "./Para.jsx"
 import Skill from './what-I-do.jsx';
 import Projects from "./projects.jsx"

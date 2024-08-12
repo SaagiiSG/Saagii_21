@@ -53,7 +53,7 @@ function ContactInfo(props){
         }}
         initial={"hidden"}
         animate={mainControls}
-        className="group w-[227px] flex flex-col items-start justify-center font-display ml-[36px]">
+        className="group w-[227px] flex flex-col items-start justify-center font-body ml-[36px]">
             <h3 className="font-extrabold text-[24px]">{props.contactInfoName}</h3>
             <p className="font-extrabold text-[16px] text-slate-900 opacity-85 group-hover:scale-105 duration-300 ">{props.contactInformation}</p>
         </motion.div>

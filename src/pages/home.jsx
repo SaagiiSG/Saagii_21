@@ -14,7 +14,7 @@ function Home(){
 
           <Hero/>
           <Para  
-            id={"about_me"}
+            id={"ABOUT"}
             header={"about me"}
             lineOne={"I’m a "}
             insideSpan={"selectively skilled"}

@@ -45,7 +45,7 @@ export default function Nav(props){
             initial={"hidden"}
             animate={mainControls}
             transition={{duration:0.8}}
-            className='w-full flex flex-row items-center sm:overflow-hidden justify-between 2xl:px-[96px] md:px-[72px] sm:py-[32px] 2xl:py-[48px] md:text-[18px] fixed py-4 px-4 '>
+            className='z-50 w-full flex flex-row items-center sm:overflow-hidden justify-between 2xl:px-[96px] md:px-[72px] sm:py-[32px] 2xl:py-[48px] md:text-[18px] fixed py-4 px-4 '>
             <header className='z-50 group text-[20px] md:text-[24px] h-auto flex flex-col items-center justify-center sm:justify-start overflow-hidden  tracking-[6px] font-body font-normal  2xl:text-[28px]'>
                 {/* <Link to="/" className='duration-700 w-[42px] text-center'>SG</Link> 
                 <Link to="/" className='duration-700 w-[42px] text-center 2xl:tracking-[13px]'>21</Link>  */}

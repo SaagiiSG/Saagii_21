@@ -65,9 +65,9 @@ export default function Nav(props){
                         return(
                         <li key={i} onClick={()=> scrollToSection(sectionId)}  offset={50} duration={500} className='group w-[75px] [&>span]:cursor-pointer sm:w-auto h-[30px] flex flex-col overflow-hidden translate-x-0 items-end sm:items-start'>
                             <Link to="/" className='duration-300 md:group-hover:-translate-y-[30px] md:group-hover:duration-300 2xl:group-hover:-translate-y-[40px]'
-                                >{sectionIds}</Link>
+                                >{sectionId}</Link>
                             <Link to="/" className='translate-y-0 text-slate-600 duration-300 md:group-hover:-translate-y-[30px] 2xl:group-hover:-translate-y-[40px]   
-                                group-hover:duration-300'>{sectionIds}</Link>
+                                group-hover:duration-300'>{sectionId}</Link>
                         </li>
                         )
                     })

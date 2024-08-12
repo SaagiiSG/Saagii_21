@@ -25,6 +25,7 @@ function Home(){
           />
           <Skill/>
           <Para 
+            id={"exp"}
             header={"Experience"}
             lineOne={"After"}
             insideSpan={" hundreds of "}

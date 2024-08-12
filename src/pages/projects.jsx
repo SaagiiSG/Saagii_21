@@ -36,8 +36,8 @@ export default function Projects(props){
                 animate={mainContrtols}
                 transition={{duration:0.6, delay:.3}}
                 >
-                    <h1 className="w-full text-[64px] md:w-[72%] sm:text-[80px] leading-[80px]  duration-300 relative font-display group-hover:text-[#FF6C00] group-hover:opacity-100">NEON EDU</h1>
-                    <h2 className="md:w-[72%] tracking-[4px] font-display"> portfolio website developer, designer</h2>
+                    <h1 className="w-full text-[64px] md:w-[72%] sm:text-[80px] leading-[80px]  duration-300 relative font-body group-hover:text-[#FF6C00] group-hover:opacity-100">NEON EDU</h1>
+                    <h2 className="md:w-[72%] tracking-[4px] font-body"> portfolio website developer, designer</h2>
 
                     <a href='https://neonedu.net/' className="w-full text-left sm:absolute sm:opacity-0 sm:w-auto text-[20px]  sm:group-hover:block sm:group-hover:opacity-100 sm:group-hover:duration-[400ms] sm:group-hover:translate-x-[40%] font-body ease-out   sm:underline cursor-pointer opacity-80 font-light mt-2">see the website {`>`}</a>
                 </motion.div >
@@ -47,8 +47,8 @@ export default function Projects(props){
                 animate={mainContrtols}
                 transition={{duration:0.6, delay:.6}}
                 >
-                    <h1 className="w-full text-[64px] md:w-[72%] sm:text-[80px] leading-[80px]  duration-300 relative font-display group-hover:text-[#CA53BA] group-hover:opacity-100">LUNCHRR</h1>
-                    <h2 className="md:w-[72%] tracking-[4px] font-display">front-end developer, ui/ux designer</h2>
+                    <h1 className="w-full text-[64px] md:w-[72%] sm:text-[80px] leading-[80px]  duration-300 relative font-body group-hover:text-[#CA53BA] group-hover:opacity-100">LUNCHRR</h1>
+                    <h2 className="md:w-[72%] tracking-[4px] font-body">front-end developer, ui/ux designer</h2>
 
                     <a href='https://github.com/SaagiiSG/LUNCHRR-test' className="w-full text-left sm:absolute sm:opacity-0 sm:w-auto text-[20px]  sm:group-hover:block sm:group-hover:opacity-100 sm:group-hover:duration-[400ms] sm:group-hover:translate-x-[40%] font-body ease-out   sm:underline cursor-pointer opacity-80 font-light mt-2"
                         >git repo {`>`}</a>
@@ -59,8 +59,8 @@ export default function Projects(props){
                 animate={mainContrtols}
                 transition={{duration:0.6, delay:.9}}
                 >
-                    <h1 className="w-full text-[64px] md:w-[72%] sm:text-[80px] leading-[80px]  duration-300 relative font-display group-hover:text-[#18CBE6] group-hover:opacity-100">{thirdPname}</h1>
-                    <h2 className="md:w-[72%] tracking-[4px] font-display">founder, lead developer, ui/ux designer</h2>
+                    <h1 className="w-full text-[64px] md:w-[72%] sm:text-[80px] leading-[80px]  duration-300 relative font-body group-hover:text-[#18CBE6] group-hover:opacity-100">{thirdPname}</h1>
+                    <h2 className="md:w-[72%] tracking-[4px] font-body">founder, lead developer, ui/ux designer</h2>
 
                     <a href='' className="w-full text-left sm:absolute sm:opacity-0 sm:w-auto text-[20px]  sm:group-hover:block sm:group-hover:opacity-100 sm:group-hover:duration-[400ms] sm:group-hover:translate-x-[40%] font-body ease-out   sm:underline cursor-pointer opacity-80 font-light mt-2">coming soon {`>`}</a>
                 </motion.div>

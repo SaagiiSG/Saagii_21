@@ -34,7 +34,7 @@ export default function Nav(props){
         if(element){
             const mTop = 0;
             const scrollToY = element.getBoundingClientRect().top + window.scrollY - mTop;
-            window.scrollTo({top:scrollToY, behavior:"smooth"})
+            window.scrollTo({top:scrollToY, behavior:"smooth", duration:.8})
         }
       }
 

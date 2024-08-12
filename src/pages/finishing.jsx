@@ -23,7 +23,7 @@ export default function Finish(){
         };
       }
     return(
-    <article id='motto' className='w-full h-[70vh] sm:h-[100vh] flex flex-col justify-center items-center overflow-hidden'>
+    <article id='contact' className='w-full h-[70vh] sm:h-[100vh] flex flex-col justify-center items-center overflow-hidden'>
         <header className='header text-center w-full'>My motto</header>
         <div className='w-[95%] sm:w-[80%] flex flex-col justify-center items-center text-[40px] sm:text-[96px] text-center sm:leading-[100px] font-display font-bold tracking-[-1px] sm:font-medium sm:tracking-[3px]'>
             <motion.p ref={ref} 

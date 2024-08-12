@@ -27,7 +27,7 @@ export default function Projects(props){
         };
       }
     return(
-        <artcile id='motto' className="w-full h-screen flex flex-col justify-center items-center">
+        <artcile id='work' className="w-full h-screen flex flex-col justify-center items-center">
             <header className='w-[65%] header'>Projects</header>
             <section className='w-full flex flex-col gap-0 justify-start items-center '>
                 <motion.div ref={ref} className="group w-full flex flex-col justify-center items-center h-auto py-[16px] text-left border-t-[0.75px] border-slate-400 overflow-hidden pl-6" 

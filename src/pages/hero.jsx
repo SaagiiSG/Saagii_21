@@ -31,7 +31,7 @@ import {motion, useInView, useAnimation} from 'framer-motion'
                 initial={"hidden"}
                 animate={mainControls}
                 transition={{duration:0.3}}
-            className='font-display ml-[4px] md:ml-0 w-full sm:w-auto tracking-[6px] pb-[24px] md:mb-0 2xl:text-[24px]'>SARAN-OCHIR .S</motion.header>
+            className='font-display ml-[4px] md:ml-0 w-full sm:w-auto tracking-[6px] pb-[24px] md:mb-0 2xl:text-[24px]'>SARAN-OCHIR.S</motion.header>
         <h1 className="w-full text-[64px] leading-[62px] sm:w-1/2 md:w-[65%] xl:w-auto flex flex-col items-start sm:items-center md:text-[96px] 2xl:text-[128px] 2xl:leading-[126px] text-center sm:leading-[96px] tracking-[2px] mt-6 md:mt-0" style={{fontFamily:'lexend'}}> 
                 <motion.span 
                

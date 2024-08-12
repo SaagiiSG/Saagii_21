@@ -61,7 +61,7 @@ function ContactInfo(props){
 }
 export default function Footer(){
     return(
-        <footer className="w-full h-auto py-[64px] flex flex-col justify-center items-center ">
+        <footer id='CONTACT' className="w-full h-auto py-[64px] flex flex-col justify-center items-center ">
             <header className="md:w-[65%] header pb-[32px]">Let's connect</header>
             <div className="h-auto w-full sm:w-[60%] flex sm:flex-row flex-col justify-start items-start gap-x-[24px] gap-y-4 sm:gap-y-0 sm:justify-center">
                 <div className="w-full flex flex-col justify-start items-start sm:gap-y-[48px] gap-y-4">

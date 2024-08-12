@@ -23,7 +23,7 @@
 
   @layer components{
     .header{
-      @apply font-display text-left leading-[56px] tracking-[6px];
+      @apply font-['sora'] text-left leading-[56px] tracking-[6px];
     }
   }
 

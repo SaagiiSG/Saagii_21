@@ -30,7 +30,7 @@
     "tailwindcss": "^3.4.7",
     "vite": "^5.3.4"
   },
-  "homepage": "https://SaagiiSg.github.io.Saagii_21",
+  "homepage": ".",
 "predeploy": "npm run build",
 "deploy": "gh-pages -d dist",
 "dev": "vite",

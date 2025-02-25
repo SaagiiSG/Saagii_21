@@ -73,24 +73,7 @@ export default function Nav(props){
                     })
                 }
 
-                {/* <button onClick={()=>{}}  offset={50} duration={500} className='group w-[75px] [&>span]:cursor-pointer sm:w-auto h-[30px] flex flex-col overflow-hidden translate-x-0 items-end sm:items-start'>
-                    <Link to="/" className='duration-300 md:group-hover:-translate-y-[30px] md:group-hover:duration-300 2xl:group-hover:-translate-y-[40px]'
-                        >ABOUT</Link>
-                    <Link to="/" className='translate-y-0 text-slate-600 duration-300 md:group-hover:-translate-y-[30px] 2xl:group-hover:-translate-y-[40px]   
-                        group-hover:duration-300'>ABOUT</Link>
-                </button>
-                <button onClick={props.click} to="/projects" offset={50} duration={500} className='group w-[75px] [&>span]:cursor-pointer sm:w-auto h-[30px] flex flex-col overflow-hidden translate-x-0 items-end sm:items-start'>
-                    <Link to="/" className='duration-300 md:group-hover:-translate-y-[30px] md:group-hover:duration-300 2xl:group-hover:-translate-y-[40px]'
-                        >WORK</Link>
-                    <Link to="/" className='translate-y-0 text-slate-600 duration-300 md:group-hover:-translate-y-[30px] 2xl:group-hover:-translate-y-[40px]   
-                        group-hover:duration-300'>WORK</Link>
-                </button>
-                <button to="/motto" offset={50} duration={500} className='group w-[75px] [&>span]:cursor-pointer  sm:w-auto h-[30px] flex flex-col overflow-hidden translate-x-0 items-end sm:items-start'>
-                    <Link to="/" className='duration-300 md:group-hover:-translate-y-[30px] md:group-hover:duration-300 2xl:group-hover:-translate-y-[40px]'
-                        >CONTACT</Link>
-                    <Link to="/" className='translate-y-0 text-slate-600 duration-300 md:group-hover:-translate-y-[30px] 2xl:group-hover:-translate-y-[40px]   
-                        group-hover:duration-300'>CONTACT</Link>
-                </button> */}
+              
             </section>
         </motion.nav>
     )

@@ -2,8 +2,11 @@ import React, { forwardRef } from 'react'
 import '../style.css'
 import { useEffect, useRef } from 'react'
 import {motion, useInView, useAnimation} from 'framer-motion'
+import Alert from '../components/alert'
+ 
 
- function Hero(props, scrollRef){
+function Hero(props, scrollRef){
+
     const ScrollRef = scrollRef;
     const ref = useRef(null)
     const isInView = useInView(ref, {once:true})
@@ -25,6 +28,7 @@ import {motion, useInView, useAnimation} from 'framer-motion'
       }
     return(
         <article  ref={ScrollRef} className='h-[70vh] w-full sm:h-[100vh] flex flex-col  items-start sm:justify-center sm:items-center justify-start pt-[200px] pl-8 sm:pl-0 sm:pt-0'>
+            <Alert/>
             <motion.header 
                 ref={ref}
                 variants={boxVariants}

@@ -7,13 +7,26 @@ import Skill from './what-I-do.jsx';
 import Projects from "./projects.jsx"
 import Finish from './finishing.jsx';
 import Footer from './footer.jsx';
+import ScrollProgress from '../components/ScrollProgress.jsx';
+import BrushDivider from '../components/svg/BrushDivider.jsx';
+
+// Subtle washi-paper grain laid over everything.
+const GRAIN =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E";
 
 function Home(){
     return(
-        <main className='w-full h-auto sm:min-h-screen  sm:overflow-scroll flex flex-col items-center bg-[#f0f8ff] text-[#101720] ' style={{fontFamily:'sora'}}>
+        <main className='w-full h-auto sm:min-h-screen flex flex-col items-center bg-[var(--paper)] text-[var(--ink)]' style={{fontFamily:'sora'}}>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 z-[70] opacity-[0.05] mix-blend-multiply"
+            style={{ backgroundImage: `url("${GRAIN}")` }}
+          />
+          <ScrollProgress/>
 
           <Hero/>
-          <Para  
+          <BrushDivider/>
+          <Para
             id={"ABOUT"}
             header={"about me"}
             lineOne={"I’m a "}
@@ -24,7 +37,8 @@ function Home(){
             wholeText={"I’m a selectively skilled developer with strong desire to produce high quality web-apps"}
           />
           <Skill/>
-          <Para 
+          <BrushDivider flip/>
+          <Para
             id={"exp"}
             header={"Experience"}
             lineOne={"After"}
@@ -35,13 +49,14 @@ function Home(){
             lineFour={"going projects later here I am "}
             wholeText={"After hundreds of course tutorial, one portfolio website and multiple on going projects later here I am"}
           />
-          
+
           <Projects/>
+          <BrushDivider/>
           <Finish/>
           <Footer/>
 
      <SocialIcons/>
-     
+
     </main>
     )
 }

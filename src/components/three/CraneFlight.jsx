@@ -5,6 +5,33 @@ import * as THREE from "three";
 
 const MODEL_URL = `${import.meta.env.BASE_URL}models/origami-crane.glb`;
 
+// The canvas layer is always full-viewport, so measure with plain window
+// resize events instead of ResizeObserver (which some embedded webviews stub
+// out — R3F would then never size the canvas or render the scene).
+class ViewportResizeObserver {
+    constructor(callback) {
+        this.callback = callback;
+        this.targets = new Set();
+        this.handle = () =>
+            this.callback(
+                [...this.targets].map((target) => ({ target, contentRect: target.getBoundingClientRect() })),
+                this
+            );
+    }
+    observe(target) {
+        this.targets.add(target);
+        window.addEventListener("resize", this.handle);
+        this.handle();
+    }
+    unobserve(target) {
+        this.targets.delete(target);
+    }
+    disconnect() {
+        this.targets.clear();
+        window.removeEventListener("resize", this.handle);
+    }
+}
+
 // Origami crane by konta johanna (origami design Aimi Sekiguchi), CC BY 3.0,
 // via poly.pizza — flat vermillion paper with ink fold lines.
 function buildInkCrane(scene) {
@@ -31,10 +58,11 @@ function buildInkCrane(scene) {
     return { s, norm, center };
 }
 
-// One crane riding its own scroll spring from the top of the viewport to the
-// bottom. `progress` is a framer-motion MotionValue — each crane gets a
-// different spring so the flock trails out while you scroll.
-function Crane({ progress, fx, scale, phase, spin }) {
+// One crane descending the viewport on its own scroll spring while sweeping
+// left-right on a sine path — `crossings` sets how many times it crosses the
+// screen on the way down. It turns to face its direction of travel and banks
+// into the turns.
+function Crane({ progress, scale, phase, crossings }) {
     const group = useRef();
     const gltf = useLoader(GLTFLoader, MODEL_URL);
     const { s, norm, center } = useMemo(() => buildInkCrane(gltf.scene), [gltf]);
@@ -49,10 +77,18 @@ function Crane({ progress, fx, scale, phase, spin }) {
         if (!g) return;
         const t = state.clock.getElapsedTime();
         const p = progress.get();
-        g.position.y = (0.5 - p) * (viewport.height + 1.8);
-        g.position.x = viewport.width * fx + (reduce ? 0 : Math.sin(t * 0.6 + phase) * 0.25);
-        g.rotation.y = phase + p * Math.PI * 2 * spin + (reduce ? 0 : t * 0.12);
-        g.rotation.z = reduce ? 0 : Math.sin(t * 0.9 + phase) * 0.08;
+
+        const a = p * Math.PI * crossings + phase;
+        const vx = Math.cos(a); // horizontal direction of travel
+
+        g.position.x = Math.sin(a) * viewport.width * 0.42;
+        g.position.y = (0.5 - p) * (viewport.height + 1.8) + (reduce ? 0 : Math.sin(t * 1.1 + phase) * 0.1);
+
+        // turn smoothly to face travel direction, bank into the turn
+        const targetYaw = vx >= 0 ? 0.9 : Math.PI - 0.9;
+        g.rotation.y += (targetYaw - g.rotation.y) * 0.06;
+        const bank = -vx * 0.22 + (reduce ? 0 : Math.sin(t * 0.9 + phase) * 0.06);
+        g.rotation.z += (bank - g.rotation.z) * 0.08;
     });
 
     return (
@@ -68,13 +104,14 @@ export default function CraneFlight({ progresses }) {
             dpr={[1, 2]}
             camera={{ position: [0, 0, 6], fov: 40 }}
             gl={{ alpha: true, antialias: true, preserveDrawingBuffer: true }}
+            resize={{ polyfill: ViewportResizeObserver, scroll: false, debounce: 0 }}
             style={{ background: "transparent" }}
         >
             <ambientLight intensity={0.85} />
             <directionalLight position={[3, 4, 5]} intensity={0.9} />
-            <Crane progress={progresses[0]} fx={0.31} scale={0.6} phase={0.4} spin={1} />
-            <Crane progress={progresses[1]} fx={0.4} scale={0.42} phase={2.1} spin={1.35} />
-            <Crane progress={progresses[2]} fx={0.355} scale={0.3} phase={4.0} spin={0.8} />
+            <Crane progress={progresses[0]} scale={0.6} phase={0.5} crossings={3} />
+            <Crane progress={progresses[1]} scale={0.42} phase={2.4} crossings={4} />
+            <Crane progress={progresses[2]} scale={0.3} phase={4.2} crossings={2.5} />
         </Canvas>
     );
 }

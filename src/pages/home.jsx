@@ -43,7 +43,8 @@ function Home(){
           <BrushDivider flip/>
           <Para
             id={"exp"}
-            backdrop={<AsciiWave/>}
+            dark
+            backdrop={<AsciiWave dark fullWidth/>}
             header={"Experience"}
             lineOne={"After"}
             insideSpan={" hundreds of "}

@@ -35,15 +35,16 @@ export default function Para(props){
     ]
 
     return(
-        <article id={props.id} className="flex flex-col items-start sm:items-center justify-center w-full sm:h-screen h-[70vh] pl-8">
-            <SectionHeader className="w-full pl-2 sm:w-[65%]">{props.header}</SectionHeader>
+        <article id={props.id} className="relative flex flex-col items-start sm:items-center justify-center w-full sm:h-screen h-[70vh] pl-8">
+            {props.backdrop}
+            <SectionHeader className="relative w-full pl-2 sm:w-[65%]">{props.header}</SectionHeader>
 
             <motion.div
                 variants={container}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-18%" }}
-                className="hidden sm:flex flex-col justify-center items-start md:w-[65%] sm:items-center w-auto text-left md:text-[64px] md:leading-[65px] text-[36px] mt-4"
+                className="relative hidden sm:flex flex-col justify-center items-start md:w-[65%] sm:items-center w-auto text-left md:text-[64px] md:leading-[65px] text-[36px] mt-4"
             >
                 {lines.map((l, i) => (
                     <RevealLine key={i}><p>{l}</p></RevealLine>
@@ -55,7 +56,7 @@ export default function Para(props){
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-12%" }}
-                className="block sm:hidden text-[40px] w-[95%] leading-[42px] mt-4"
+                className="relative block sm:hidden text-[40px] w-[95%] leading-[42px] mt-4"
             >
                 <p>
                     {props.wholeText.split(" ").map((w, i) => (

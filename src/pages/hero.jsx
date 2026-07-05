@@ -3,6 +3,7 @@ import '../style.css'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Alert from '../components/alert'
 import Enso from '../components/svg/Enso'
+import GooseFlock from '../components/svg/GooseFlock'
 
 const EASE = [0.23, 1, 0.32, 1]
 
@@ -33,6 +34,7 @@ function Hero() {
 
     return (
         <article ref={articleRef} className='relative h-[70vh] w-full sm:h-[100vh] flex flex-col items-start sm:justify-center sm:items-center justify-start pt-[200px] pl-8 sm:pl-0 sm:pt-0'>
+            <GooseFlock />
             <Alert />
             <motion.div style={{ y: driftY, opacity: fade }} className="flex flex-col items-start sm:items-center">
                 <motion.header

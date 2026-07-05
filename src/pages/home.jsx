@@ -9,6 +9,8 @@ import Finish from './finishing.jsx';
 import Footer from './footer.jsx';
 import ScrollProgress from '../components/ScrollProgress.jsx';
 import BrushDivider from '../components/svg/BrushDivider.jsx';
+import AsciiWave from '../components/AsciiWave.jsx';
+import FollowingCranes from '../components/FollowingCranes.jsx';
 
 // Subtle washi-paper grain laid over everything.
 const GRAIN =
@@ -23,6 +25,7 @@ function Home(){
             style={{ backgroundImage: `url("${GRAIN}")` }}
           />
           <ScrollProgress/>
+          <FollowingCranes/>
 
           <Hero/>
           <BrushDivider/>
@@ -40,6 +43,7 @@ function Home(){
           <BrushDivider flip/>
           <Para
             id={"exp"}
+            backdrop={<AsciiWave/>}
             header={"Experience"}
             lineOne={"After"}
             insideSpan={" hundreds of "}

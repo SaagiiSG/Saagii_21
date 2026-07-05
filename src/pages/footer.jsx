@@ -58,6 +58,9 @@ export default function Footer(){
             <div className="w-full flex flex-col items-center justify-center mt-[88px] gap-5">
                 <SealStamp/>
                 <p className="text-[11px] tracking-[3px] uppercase opacity-40 font-body">© 2020 — {new Date().getFullYear()} Saran-Ochir.S</p>
+                <p className="text-[10px] tracking-[1px] opacity-30 font-body text-center px-6">
+                    wave — Hokusai (public domain) · goose — Wikimedia Commons (CC BY-SA 3.0) · origami crane — konta johanna / Aimi Sekiguchi via poly.pizza (CC BY 3.0)
+                </p>
             </div>
         </footer>
     )

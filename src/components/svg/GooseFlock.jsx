@@ -2,34 +2,57 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { GOOSE_PATH } from "./goosePath.js";
 
-// A small flock of ink geese in the hero sky — the classic "descending geese"
-// sumi-e motif. Each bird flies in from the lower left on an arc, then glides:
-// a slow bob + wing flutter, drifting at its own speed as you scroll.
+// A whole flock of ink geese for the hero sky. Each bird sweeps in from
+// off-screen left, passes large across the screen (entrance scale > 1),
+// then recedes and settles into the background behind the text — near
+// birds dark and fast, far birds faint and slow. After settling: endless
+// glide (bob + flutter) and per-bird parallax drift on scroll.
 //
-// Three nested layers so the transforms never fight over one axis:
+// Layers per bird so transforms never fight over one axis:
 //   outer  — scroll drift (style.x)
-//   middle — one-shot fly-in arc (animate x/y/rotate/opacity keyframes)
+//   middle — one-shot fly-in swoop (animate x/y/rotate/scale/opacity)
 //   inner  — endless glide loop (animate y/rotate/scaleY)
-const BIRDS = [
-    { left: "58%", top: "16%", w: 62, o: 0.72, drift: -150, bob: 5.2, delay: 0.9, fromX: -260, fromY: 120 },
-    { left: "68%", top: "25%", w: 46, o: 0.52, drift: -100, bob: 6.3, delay: 1.15, fromX: -320, fromY: 90 },
-    { left: "77%", top: "11%", w: 34, o: 0.4, drift: -190, bob: 4.7, delay: 1.4, fromX: -380, fromY: 150 },
-    { left: "85%", top: "21%", w: 24, o: 0.28, drift: -70, bob: 6.9, delay: 1.65, fromX: -430, fromY: 110 },
-];
+function mulberry32(seed) {
+    return function () {
+        let t = (seed += 0x6d2b79f5);
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
+const rand = mulberry32(21);
+const BIRDS = Array.from({ length: 28 }, () => {
+    const depth = rand(); // 0 = far away, 1 = close
+    return {
+        left: `${4 + rand() * 88}%`,
+        top: `${4 + rand() * 34}%`,
+        w: Math.round(14 + depth * 52),
+        o: 0.16 + depth * 0.55,
+        drift: -(40 + depth * 170 + rand() * 60),
+        bob: 4.2 + rand() * 3.4,
+        delay: 0.45 + rand() * 1.7,
+        duration: 2.1 + rand() * 0.9,
+        fromX: -(420 + rand() * 520),
+        fromY: 60 + rand() * 260,
+        swoop: 1.5 + depth * 1.2, // entrance scale — flies past close, recedes to settle
+    };
+});
 
 function Bird({ bird, progress }) {
     const x = useTransform(progress, [0, 1], [0, bird.drift]);
     return (
         <motion.div className="absolute" style={{ left: bird.left, top: bird.top, x }}>
             <motion.div
-                initial={{ x: bird.fromX, y: bird.fromY, rotate: -12, opacity: 0 }}
+                initial={{ x: bird.fromX, y: bird.fromY, rotate: -14, scale: bird.swoop, opacity: 0 }}
                 animate={{
-                    x: [bird.fromX, bird.fromX * 0.32, 0],
-                    y: [bird.fromY, -bird.fromY * 0.28, 0],
-                    rotate: [-12, 5, 0],
-                    opacity: [0, bird.o, bird.o],
+                    x: [bird.fromX, bird.fromX * 0.3, 0],
+                    y: [bird.fromY, -bird.fromY * 0.26, 0],
+                    rotate: [-14, 5, 0],
+                    scale: [bird.swoop, bird.swoop * 0.55, 1],
+                    opacity: [0, Math.min(0.85, bird.o + 0.3), bird.o],
                 }}
-                transition={{ duration: 2.1, delay: bird.delay, ease: [0.23, 1, 0.32, 1], times: [0, 0.55, 1] }}
+                transition={{ duration: bird.duration, delay: bird.delay, ease: [0.23, 1, 0.32, 1], times: [0, 0.55, 1] }}
             >
                 <motion.svg
                     viewBox="0 0 516 504"

@@ -105,7 +105,11 @@ export default function CraneFlight({ progresses }) {
             camera={{ position: [0, 0, 6], fov: 40 }}
             gl={{ alpha: true, antialias: true, preserveDrawingBuffer: true }}
             resize={{ polyfill: ViewportResizeObserver, scroll: false, debounce: 0 }}
-            style={{ background: "transparent" }}
+            style={{ background: "transparent", pointerEvents: "none" }}
+            onCreated={({ gl }) => {
+                // the layer is decorative — never let the canvas eat clicks/hovers
+                gl.domElement.style.pointerEvents = "none";
+            }}
         >
             <ambientLight intensity={0.85} />
             <directionalLight position={[3, 4, 5]} intensity={0.9} />

@@ -12,17 +12,8 @@ const projects = [
     },
     {
         index: "02",
-        name: "LUNCHRR",
-        role: "front-end developer, ui/ux designer",
-        link: "https://github.com/SaagiiSG/LUNCHRR-test",
-        linkLabel: "git repo",
-    },
-    {
-        index: "03",
-        name: "Xperience",
-        role: "founder, lead developer, ui/ux designer, video editor",
-        link: "https://www.instagram.com/_xperience___/",
-        linkLabel: "instagram page",
+        name: "FlowersOS",
+        role: "software for the best SAT math edu center in Mongolia — 700+ users",
     },
 ]
 
@@ -44,7 +35,9 @@ export default function Projects(){
                         <h1 className="w-full text-[64px] md:w-[72%] sm:text-[80px] leading-[80px] duration-300 ease-out-strong relative font-body group-hover:text-[var(--vermillion)] sm:group-hover:translate-x-[1.5%]">{p.name}</h1>
                         <h2 className="md:w-[72%] tracking-[4px] font-body">{p.role}</h2>
 
-                        <a href={p.link} className="w-full text-left sm:absolute sm:opacity-0 sm:w-auto text-[20px] sm:group-hover:block sm:group-hover:opacity-100 sm:group-hover:duration-[400ms] sm:group-hover:translate-x-[40%] font-body ease-out sm:underline cursor-pointer opacity-80 font-light mt-2 active:scale-[0.98]">{p.linkLabel} {`>`}</a>
+                        {p.link && (
+                            <a href={p.link} className="w-full text-left sm:absolute sm:opacity-0 sm:w-auto text-[20px] sm:group-hover:block sm:group-hover:opacity-100 sm:group-hover:duration-[400ms] sm:group-hover:translate-x-[40%] font-body ease-out sm:underline cursor-pointer opacity-80 font-light mt-2 active:scale-[0.98]">{p.linkLabel} {`>`}</a>
+                        )}
                     </motion.div>
                 ))}
             </section>

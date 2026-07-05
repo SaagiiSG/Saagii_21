@@ -76,7 +76,7 @@ function Bird({ bird, progress }) {
                     width={bird.w}
                     height={Math.round(bird.w * (504 / 516))}
                     fill="var(--ink)"
-                    style={{ originX: 0.5, originY: 0.5, scaleX: -1 }}
+                    style={{ originX: 0.5, originY: 0.5 }}
                     animate={{ y: [0, -7, 0], rotate: [0, -2.5, 0], scaleY: [1, 0.9, 1] }}
                     transition={{ duration: bird.bob, repeat: Infinity, ease: "easeInOut" }}
                 >

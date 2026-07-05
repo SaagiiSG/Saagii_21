@@ -32,7 +32,8 @@ export default function Para(props){
         props.lineTwo,
         props.lineThree,
         props.lineFour,
-    ]
+        props.lineFive,
+    ].filter((l) => l !== undefined && l !== null && l !== "")
 
     return(
         <article id={props.id} className={`relative flex flex-col items-start sm:items-center justify-center w-full sm:h-screen h-[70vh] pl-8 ${props.dark ? "bg-[var(--ink)] text-[var(--paper)]" : ""}`}>

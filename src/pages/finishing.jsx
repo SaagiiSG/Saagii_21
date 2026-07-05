@@ -30,13 +30,13 @@ export default function Finish(){
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true, margin: "-20%" }}
                 transition={{ duration: 0.7, delay: 0.1, ease: EASE }}>
-                GOOD CODE IS UNDERSTANDABLE</motion.p>
+                GENERALITY IS A SCAM</motion.p>
             <motion.p
                 initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true, margin: "-20%" }}
                 transition={{ duration: 0.7, delay: 0.28, ease: EASE }}>
-                BETTER CODE IS MINIMAL</motion.p>
+                SPECIFICITY IS THE NEW NORM</motion.p>
         </div>
     </article>
 )

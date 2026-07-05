@@ -35,9 +35,9 @@ function Home(){
             lineOne={"I’m a "}
             insideSpan={"selectively skilled"}
             lineTwo={"developer with strong desire"}
-            lineThree={"to produce high quality"}
-            lineFour={"web-apps"}
-            wholeText={"I’m a selectively skilled developer with strong desire to produce high quality web-apps"}
+            lineThree={"to produce user first"}
+            lineFour={"experience softwares"}
+            wholeText={"I’m a selectively skilled developer with strong desire to produce user first experience softwares"}
           />
           <Skill/>
           <BrushDivider flip/>
@@ -47,12 +47,12 @@ function Home(){
             backdrop={<AsciiWave dark fullWidth/>}
             header={"Experience"}
             lineOne={"After"}
-            insideSpan={" hundreds of "}
-            lineOneC={"course,"}
-            lineTwo={"tutorial, one portfolio"}
-            lineThree={"website and multiple on"}
-            lineFour={"going projects later here I am "}
-            wholeText={"After hundreds of course tutorial, one portfolio website and multiple on going projects later here I am"}
+            insideSpan={" hundreds of hours "}
+            lineTwo={"spent developing vibe"}
+            lineThree={"coded softwares and one"}
+            lineFour={"full production ed tech"}
+            lineFive={"software later here I am"}
+            wholeText={"After hundreds of hours spent developing vibe coded softwares and one full production ed tech software later here I am"}
           />
 
           <Projects/>

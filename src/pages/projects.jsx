@@ -20,7 +20,19 @@ const projects = [
     {
         index: "03",
         name: "AI Instructor",
-        role: "I create content on how to use AI better than 99% of the people",
+        role: (
+            <>
+                I create content on how to use AI better than 99% of the people at{" "}
+                <a
+                    href="https://lambda.global/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[var(--vermillion)] underline-offset-4 hover:underline"
+                >
+                    Lambda
+                </a>
+            </>
+        ),
         link: "https://lambda.global/ai/instructor/61",
         linkLabel: "meet the instructor",
     },

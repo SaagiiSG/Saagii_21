@@ -19,10 +19,10 @@ const projects = [
     },
     {
         index: "03",
-        name: "AI Coach",
-        role: "my personal AI coach on Lambda",
+        name: "AI Instructor",
+        role: "I create content on how to use AI better than 99% of the people",
         link: "https://lambda.global/ai/instructor/61",
-        linkLabel: "meet the coach",
+        linkLabel: "meet the instructor",
     },
 ]
 

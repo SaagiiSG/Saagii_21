@@ -17,6 +17,13 @@ const projects = [
         link: "https://flowersos.co/",
         linkLabel: "see the website",
     },
+    {
+        index: "03",
+        name: "AI Coach",
+        role: "my personal AI coach on Lambda",
+        link: "https://lambda.global/ai/instructor/61",
+        linkLabel: "meet the coach",
+    },
 ]
 
 export default function Projects(){

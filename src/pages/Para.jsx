@@ -65,6 +65,21 @@ export default function Para(props){
                     ))}
                 </p>
             </motion.div>
+
+            {props.cta && (
+                <motion.a
+                    href={props.cta.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
+                    className={`relative mt-8 font-body text-[18px] md:text-[20px] tracking-[2px] underline underline-offset-4 decoration-[var(--vermillion)] hover:text-[var(--vermillion)] duration-300 active:scale-[0.98] ${props.dark ? "text-[var(--paper)]" : "text-[var(--ink)]"}`}
+                >
+                    {props.cta.label} {`>`}
+                </motion.a>
+            )}
         </article>
     )
 }

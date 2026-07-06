@@ -14,6 +14,8 @@ const projects = [
         index: "02",
         name: "FlowersOS",
         role: "software for the best SAT math edu center in Mongolia — 700+ users",
+        link: "https://flowersos.co/",
+        linkLabel: "see the website",
     },
 ]
 

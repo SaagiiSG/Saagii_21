@@ -53,6 +53,7 @@ function Home(){
             lineFour={"full production ed tech"}
             lineFive={"software later here I am"}
             wholeText={"After hundreds of hours spent developing vibe coded softwares and one full production ed tech software later here I am"}
+            cta={{ label: "meet my Lambda AI coach", href: "https://lambda.global/ai/instructor/61" }}
           />
 
           <Projects/>

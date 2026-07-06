@@ -101,7 +101,7 @@ export default function InkMountains() {
         <div
             ref={ref}
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-[52%] pointer-events-none overflow-hidden"
+            className="absolute inset-x-0 bottom-0 h-[40%] sm:h-[52%] pointer-events-none overflow-hidden"
             style={{ maskImage: "linear-gradient(to top, black 82%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 82%, transparent 100%)" }}
         >
             {RIDGES.map((r, i) => (

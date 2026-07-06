@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { GOOSE_PATH } from "./goosePath.js";
 
@@ -43,8 +43,9 @@ const BIRDS = Array.from({ length: 30 }, (_, i) => {
     };
 });
 
-function Bird({ bird, progress }) {
+function Bird({ bird, progress, sizeFactor }) {
     const x = useTransform(progress, [0, 1], [0, bird.drift]);
+    const w = Math.round(bird.w * sizeFactor);
 
     const flight = bird.stay
         ? {
@@ -73,8 +74,8 @@ function Bird({ bird, progress }) {
             <motion.div initial={{ x: bird.fromX, y: bird.fromY, opacity: 0, scale: bird.swoop }} {...flight}>
                 <motion.svg
                     viewBox="0 0 516 504"
-                    width={bird.w}
-                    height={Math.round(bird.w * (504 / 516))}
+                    width={w}
+                    height={Math.round(w * (504 / 516))}
                     fill="var(--ink)"
                     style={{ originX: 0.5, originY: 0.5 }}
                     animate={{ y: [0, -7, 0], rotate: [0, -2.5, 0], scaleY: [1, 0.9, 1] }}
@@ -94,10 +95,22 @@ export default function GooseFlock() {
         offset: ["start start", "end start"],
     });
 
+    // lighter flock on phones: a third of the migration plus the stragglers
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const mq = window.matchMedia("(max-width: 639px)");
+        const update = () => setIsMobile(mq.matches);
+        update();
+        mq.addEventListener("change", update);
+        return () => mq.removeEventListener("change", update);
+    }, []);
+
+    const birds = isMobile ? BIRDS.filter((b, i) => i % 3 === 0 || b.stay) : BIRDS;
+
     return (
-        <div ref={ref} aria-hidden="true" className="absolute inset-0 pointer-events-none hidden sm:block">
-            {BIRDS.map((b, i) => (
-                <Bird key={i} bird={b} progress={scrollYProgress} />
+        <div ref={ref} aria-hidden="true" className="absolute inset-0 pointer-events-none">
+            {birds.map((b, i) => (
+                <Bird key={i} bird={b} progress={scrollYProgress} sizeFactor={isMobile ? 0.65 : 1} />
             ))}
         </div>
     );

@@ -24,7 +24,7 @@ export default function AsciiWave({ dark = false, fullWidth = false }) {
         const ctx = canvas.getContext("2d");
         const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const font = `${FONT}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        const cols = fullWidth ? 150 : 100;
+        const cols = fullWidth ? (window.innerWidth < 640 ? 104 : 150) : 100;
         const inkColor = dark ? "rgba(209, 205, 195, 0.4)" : "rgba(25, 24, 22, 0.8)";
 
         let grid = null;

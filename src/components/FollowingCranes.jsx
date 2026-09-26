@@ -1,8 +1,34 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { Component, lazy, Suspense, useEffect, useState } from "react";
 import { useScroll, useSpring } from "framer-motion";
 
 // three.js loads in its own chunk, desktop only
 const CraneFlight = lazy(() => import("./three/CraneFlight.jsx"));
+
+// No WebGL (hardware acceleration off, blocklisted GPU, locked-down browser)
+// means three.js can't run — skip it rather than download it to fail.
+function hasWebGL() {
+    try {
+        const c = document.createElement("canvas");
+        return !!(c.getContext("webgl2") || c.getContext("webgl"));
+    } catch {
+        return false;
+    }
+}
+
+// The cranes are decoration: if the model or renderer fails, drop them
+// instead of letting the error unmount the whole page.
+class CraneBoundary extends Component {
+    state = { failed: false };
+    static getDerivedStateFromError() {
+        return { failed: true };
+    }
+    componentDidCatch(error) {
+        console.warn("Origami cranes disabled:", error);
+    }
+    render() {
+        return this.state.failed ? null : this.props.children;
+    }
+}
 
 // Fixed, click-through 3D layer: three vermillion origami cranes descend the
 // right side of the viewport as you read, each on its own spring so the
@@ -10,6 +36,7 @@ const CraneFlight = lazy(() => import("./three/CraneFlight.jsx"));
 export default function FollowingCranes() {
     const [show, setShow] = useState(false);
     useEffect(() => {
+        if (!hasWebGL()) return;
         const mq = window.matchMedia("(min-width: 768px)");
         const update = () => setShow(mq.matches);
         update();
@@ -26,9 +53,11 @@ export default function FollowingCranes() {
 
     return (
         <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-[35]">
-            <Suspense fallback={null}>
-                <CraneFlight progresses={[p1, p2, p3]} />
-            </Suspense>
+            <CraneBoundary>
+                <Suspense fallback={null}>
+                    <CraneFlight progresses={[p1, p2, p3]} />
+                </Suspense>
+            </CraneBoundary>
         </div>
     );
 }

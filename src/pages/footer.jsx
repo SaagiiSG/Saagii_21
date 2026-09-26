@@ -31,7 +31,11 @@ function ContactInfo(props){
             className="group w-[227px] flex flex-col items-start justify-center font-body ml-[36px]"
         >
             <h3 className="font-extrabold text-[24px]">{props.contactInfoName}</h3>
-            <p className="font-extrabold text-[16px] text-[var(--ink-soft)] group-hover:scale-105 duration-300 ease-out-strong">{props.contactInformation}</p>
+            {props.href ? (
+                <a href={props.href} className="font-extrabold text-[16px] text-[var(--ink-soft)] underline decoration-transparent underline-offset-4 group-hover:decoration-[var(--vermillion)] group-hover:text-[var(--ink)] duration-300 ease-out-strong">{props.contactInformation}</a>
+            ) : (
+                <p className="font-extrabold text-[16px] text-[var(--ink-soft)] group-hover:scale-105 duration-300 ease-out-strong">{props.contactInformation}</p>
+            )}
         </motion.div>
     )
 }
@@ -50,7 +54,7 @@ export default function Footer(){
                     <Link socialLink={"Behance"} footeLink={"https://www.behance.net/saranochir"}/>
                 </div>
                 <div className="w-full flex flex-col justify-start items-start gap-4 sm:gap-y-[24px] mt-[72px] sm:mt-0">
-                    <ContactInfo contactInfoName={"Email"} contactInformation={"saranochir.s@gmail.com"}/>
+                    <ContactInfo contactInfoName={"Email"} contactInformation={"saranochir.s@gmail.com"} href={"mailto:saranochir.s@gmail.com"}/>
                     <ContactInfo contactInfoName={"Phone"} contactInformation={"(+976) 88163115"}/>
                 </div>
             </div>

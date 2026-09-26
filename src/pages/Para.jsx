@@ -26,14 +26,13 @@ function RevealLine({ children }) {
     )
 }
 
+export function Hl({ children }) {
+    return <span className="text-[var(--vermillion)]">{children}</span>
+}
+
 export default function Para(props){
-    const lines = [
-        <>{props.lineOne}<span className="text-[var(--vermillion)]">{props.insideSpan}</span>{props.lineOneC}</>,
-        props.lineTwo,
-        props.lineThree,
-        props.lineFour,
-        props.lineFive,
-    ].filter((l) => l !== undefined && l !== null && l !== "")
+    // desktop lines; wrap a phrase in <Hl> to paint it vermillion
+    const lines = props.lines
 
     return(
         <article id={props.id} className={`relative flex flex-col items-start sm:items-center justify-center w-full sm:h-screen h-[70vh] pl-8 ${props.dark ? "bg-[var(--ink)] text-[var(--paper)]" : ""}`}>

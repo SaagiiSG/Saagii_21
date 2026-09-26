@@ -1,18 +1,17 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import SkillItem from '../components/skill'
 import SectionHeader from '../components/SectionHeader.jsx'
 
-function Skill(props, ref){
+export default function Principles(){
     return(
-        <article ref={ref} className='w-full h-screen flex flex-col justify-center items-center overflow-hidden'>
-            <SectionHeader className='w-full pl-10 sm:w-[65%] sm:pl-0 mb-4'>skills I possess</SectionHeader>
+        <article className='w-full h-screen flex flex-col justify-center items-center overflow-hidden'>
+            <SectionHeader className='w-full pl-10 sm:w-[65%] sm:pl-0 mb-4'>principles</SectionHeader>
             <div className='w-full flex flex-col gap-0 justify-start items-center'>
-                <SkillItem index={"01"} skillName={"Human first"} skillDescription={"Focused on design that is frictionless for the user — easy to understand, easy to use"}/>
-                <SkillItem index={"02"} skillName={"Structure"} skillDescription={"As vibe coded apps become more and more widespread I focus on the architecture and structure of the software I build"}/>
-                <SkillItem index={"03"} skillName={"Water like"} skillDescription={"As water takes the form of its container I focus on the things you do and how you operate"} />
+                <SkillItem index={"01"} skillName={"Human first"} skillDescription={"If you have to think about how to use it, I haven’t finished building it."}/>
+                <SkillItem index={"02"} skillName={"Structure"} skillDescription={"AI made code cheap. I spend my effort on the architecture, so the software still works a year from now."}/>
+                <SkillItem index={"03"} skillName={"Like water"} skillDescription={"Water takes the shape of its container. I build around how you already work, not the other way around."} />
                 <div className="w-full border-t-[0.75px] border-[#19181633]" />
             </div>
         </article>
     )
 }
-export default forwardRef(Skill)

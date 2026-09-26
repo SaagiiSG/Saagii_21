@@ -2,8 +2,8 @@ import React from "react";
 
 import Hero from './hero';
 import SocialIcons from '../components/socialIcons.jsx';
-import Para from "./Para.jsx"
-import Skill from './what-I-do.jsx';
+import Para, { Hl } from "./Para.jsx"
+import Principles from './what-I-do.jsx';
 import Projects from "./projects.jsx"
 import Finish from './finishing.jsx';
 import Footer from './footer.jsx';
@@ -32,27 +32,28 @@ function Home(){
           <Para
             id={"ABOUT"}
             header={"about me"}
-            lineOne={"I’m a "}
-            insideSpan={"selectively skilled"}
-            lineTwo={"developer with strong desire"}
-            lineThree={"to produce user first"}
-            lineFour={"experience softwares"}
-            wholeText={"I’m a selectively skilled developer with strong desire to produce user first experience softwares"}
+            lines={[
+              "I design and build",
+              <>software that feels <Hl>obvious</Hl></>,
+              "to use and holds up",
+              "under the hood",
+            ]}
+            wholeText={"I design and build software that feels obvious to use and holds up under the hood"}
           />
-          <Skill/>
+          <Principles/>
           <BrushDivider flip/>
           <Para
             id={"exp"}
             dark
             backdrop={<AsciiWave dark fullWidth/>}
             header={"Experience"}
-            lineOne={"After"}
-            insideSpan={" hundreds of hours "}
-            lineTwo={"spent developing vibe"}
-            lineThree={"coded softwares and one"}
-            lineFour={"full production ed tech"}
-            lineFive={"software later here I am"}
-            wholeText={"After hundreds of hours spent developing vibe coded softwares and one full production ed tech software later here I am"}
+            lines={[
+              "Since 2020 I’ve built",
+              "client websites, taught AI",
+              "at Lambda, and shipped",
+              <>FlowersOS to <Hl>700+ users</Hl></>,
+            ]}
+            wholeText={"Since 2020 I’ve built client websites, taught AI at Lambda, and shipped FlowersOS to 700+ users"}
           />
 
           <Projects/>

@@ -50,6 +50,23 @@ body {
   }
 }
 
+.film-grain {
+  animation: film-grain 0.9s steps(9) infinite;
+}
+
+@keyframes film-grain {
+  0%   { transform: translate(0, 0); }
+  11%  { transform: translate(-7%, -9%); }
+  22%  { transform: translate(-14%, 4%); }
+  33%  { transform: translate(6%, -16%); }
+  44%  { transform: translate(-4%, 18%); }
+  55%  { transform: translate(-16%, 8%); }
+  66%  { transform: translate(12%, 2%); }
+  77%  { transform: translate(3%, 12%); }
+  88%  { transform: translate(-9%, -4%); }
+  100% { transform: translate(0, 0); }
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
